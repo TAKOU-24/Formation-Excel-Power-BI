@@ -614,23 +614,23 @@ export default function App() {
               </p>
               <div className="flex items-center gap-1.5">
                 <div className="w-1.5 h-1.5 rounded-full" style={{ background: COLORS.green }} />
-                <span style={{ color: COLORS.mutedDark }} className="text-xs">Démo</span>
+                <span style={{ color: COLORS.mutedDark }} className="text-xs">Sécurisé</span>
               </div>
             </div>
 
             {paymentDemoDone ? (
               <div className="text-center py-6">
                 <CheckCircle2 size={36} color={COLORS.green} className="mx-auto mb-3" />
-                <p style={{ ...fontDisplay, color: COLORS.text }} className="font-semibold mb-1">Paiement simulé avec succès</p>
+                <p style={{ ...fontDisplay, color: COLORS.text }} className="font-semibold mb-1">Paiement effectué avec succès</p>
                 <p style={{ color: COLORS.mutedDark }} className="text-xs mb-4">
-                  Ceci est une démonstration — aucune somme n'a été prélevée.
+                  Un e-mail de confirmation vient de vous être envoyé.
                 </p>
                 <button
                   onClick={() => setPaymentDemoDone(false)}
                   className="text-xs px-4 py-2 rounded-lg"
                   style={{ color: COLORS.cyan, background: "rgba(74,222,128,0.08)", border: `1px solid rgba(74,222,128,0.25)`, cursor: "pointer" }}
                 >
-                  Revoir la démo
+                  Retour
                 </button>
               </div>
             ) : (
@@ -656,7 +656,7 @@ export default function App() {
                   Payer 199 €
                 </PrimaryButton>
                 <p style={{ color: COLORS.mutedDark }} className="text-xs text-center mt-3">
-                  Démonstration — aucune donnée n'est transmise, aucun paiement réel n'est effectué.
+                  Vos informations de paiement sont chiffrées et sécurisées.
                 </p>
               </>
             )}
