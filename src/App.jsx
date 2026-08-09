@@ -637,17 +637,17 @@ export default function App() {
               <>
                 <div className="space-y-4">
                   <Field label="Nom sur la carte">
-                    <input placeholder="Jean Dupont" style={inputStyle} />
+                    <input placeholder="Jean Dupont" style={inputStyle} autoComplete="off" name="cc-name-preview" />
                   </Field>
                   <Field label="Numéro de carte">
-                    <input placeholder="4242 4242 4242 4242" style={inputStyle} />
+                    <input placeholder="4242 4242 4242 4242" style={inputStyle} autoComplete="off" name="cc-number-preview" />
                   </Field>
                   <div className="grid grid-cols-2 gap-4">
                     <Field label="Expiration">
-                      <input placeholder="MM / AA" style={inputStyle} />
+                      <input placeholder="MM / AA" style={inputStyle} autoComplete="off" name="cc-exp-preview" />
                     </Field>
                     <Field label="CVC">
-                      <input placeholder="123" style={inputStyle} />
+                      <input placeholder="123" style={inputStyle} autoComplete="off" name="cc-csc-preview" />
                     </Field>
                   </div>
                 </div>
