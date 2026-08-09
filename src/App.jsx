@@ -140,6 +140,7 @@ export default function App() {
   const [openFaq, setOpenFaq] = useState(0);
   const [photoError, setPhotoError] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [paymentDemoDone, setPaymentDemoDone] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState(false);
   const [form, setForm] = useState({
@@ -599,6 +600,66 @@ export default function App() {
             <PrimaryButton onClick={scrollToForm} full>
               Réserver ma place <ArrowRight size={16} />
             </PrimaryButton>
+          </div>
+
+          {/* Formulaire de paiement — DÉMO / PRÉSENTATION UNIQUEMENT. Aucune donnée de carte
+              n'est envoyée où que ce soit ; le "paiement" est simulé localement dans le navigateur. */}
+          <div
+            className="rounded-2xl p-6 mt-5"
+            style={{ background: COLORS.surface, border: `1px solid ${COLORS.borderLight}` }}
+          >
+            <div className="flex items-center justify-between mb-5">
+              <p style={{ ...fontMono, color: COLORS.mutedDark }} className="text-xs">
+                PAIEMENT PAR CARTE
+              </p>
+              <div className="flex items-center gap-1.5">
+                <div className="w-1.5 h-1.5 rounded-full" style={{ background: COLORS.green }} />
+                <span style={{ color: COLORS.mutedDark }} className="text-xs">Démo</span>
+              </div>
+            </div>
+
+            {paymentDemoDone ? (
+              <div className="text-center py-6">
+                <CheckCircle2 size={36} color={COLORS.green} className="mx-auto mb-3" />
+                <p style={{ ...fontDisplay, color: COLORS.text }} className="font-semibold mb-1">Paiement simulé avec succès</p>
+                <p style={{ color: COLORS.mutedDark }} className="text-xs mb-4">
+                  Ceci est une démonstration — aucune somme n'a été prélevée.
+                </p>
+                <button
+                  onClick={() => setPaymentDemoDone(false)}
+                  className="text-xs px-4 py-2 rounded-lg"
+                  style={{ color: COLORS.cyan, background: "rgba(74,222,128,0.08)", border: `1px solid rgba(74,222,128,0.25)`, cursor: "pointer" }}
+                >
+                  Revoir la démo
+                </button>
+              </div>
+            ) : (
+              <>
+                <div className="space-y-4">
+                  <Field label="Nom sur la carte">
+                    <input placeholder="Jean Dupont" style={inputStyle} />
+                  </Field>
+                  <Field label="Numéro de carte">
+                    <input placeholder="4242 4242 4242 4242" style={inputStyle} />
+                  </Field>
+                  <div className="grid grid-cols-2 gap-4">
+                    <Field label="Expiration">
+                      <input placeholder="MM / AA" style={inputStyle} />
+                    </Field>
+                    <Field label="CVC">
+                      <input placeholder="123" style={inputStyle} />
+                    </Field>
+                  </div>
+                </div>
+
+                <PrimaryButton onClick={() => setPaymentDemoDone(true)} full>
+                  Payer 199 €
+                </PrimaryButton>
+                <p style={{ color: COLORS.mutedDark }} className="text-xs text-center mt-3">
+                  Démonstration — aucune donnée n'est transmise, aucun paiement réel n'est effectué.
+                </p>
+              </>
+            )}
           </div>
         </div>
       </section>
