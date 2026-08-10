@@ -3,606 +3,142 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Inscription aux formations — Excel Power BI Academy</title>
-<meta name="description" content="Inscrivez-vous aux formations Excel et Power BI. Tarifs promotionnels valables jusqu'au 18 août. Paiement en 2 fois possible.">
+<title>Inscription confirmée | Excel Power BI Academy</title>
+<meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Meta Pixel Code : reprendre le même pixel ID que sur le site webinaire (1004029355870968) -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1004029355870968');
+fbq('track', 'PageView');
+</script>
+
 <style>
   :root{
-    --bg:#0A0E12;
-    --surface:#111820;
-    --surface-2:#171F29;
-    --border:#232D38;
-    --text:#F2F5F8;
-    --text-muted:#8FA0B0;
-    --green:#2FA86E;
-    --green-bright:#3FC787;
-    --gold:#E8B84B;
-    --radius:14px;
-    --radius-sm:8px;
+    --bg:#0A0D16;
+    --surface:#10141F;
+    --border:#2E3650;
+    --text:#F1F3F9;
+    --muted:#8B93AC;
+    --green:#3DDC97;
   }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
+  *{ box-sizing:border-box; }
   body{
-    background:var(--bg);
-    color:var(--text);
+    margin:0; min-height:100vh; background:var(--bg); color:var(--text);
     font-family:'Inter', sans-serif;
-    line-height:1.55;
-    -webkit-font-smoothing:antialiased;
+    display:flex; align-items:center; justify-content:center; padding:24px;
   }
-  h1,h2,h3,h4{ font-family:'Sora', sans-serif; letter-spacing:-0.01em; }
-  .mono{ font-family:'IBM Plex Mono', monospace; }
-  a{ color:inherit; text-decoration:none; }
-  img{ max-width:100%; display:block; }
-  .container{ max-width:1120px; margin:0 auto; padding:0 24px; }
-  .visually-hidden{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); }
-  :focus-visible{ outline:2px solid var(--green-bright); outline-offset:3px; border-radius:4px; }
+  .card{
+    background:var(--surface); border:1px solid var(--border); border-radius:16px;
+    padding:40px; text-align:center; max-width:520px; width:100%;
+  }
+  .check{ margin:0 auto 16px; display:block; }
+  h1{ font-family:'Sora', sans-serif; font-weight:600; font-size:1.35rem; margin:0 0 8px; }
+  .details{ color:var(--muted); font-size:0.92rem; line-height:1.7; text-align:left; margin-bottom:6px; }
+  .summary-box{
+    background:#151A28; border:1px solid var(--border); border-radius:10px;
+    padding:14px 16px; margin:18px 0; text-align:left; font-size:0.88rem;
+  }
+  .summary-box .row{ display:flex; justify-content:space-between; padding:4px 0; }
+  .summary-box .label{ color:var(--muted); }
+  .summary-box .value{ font-weight:600; color:var(--text); }
+  .summary-box .value.price{ color:var(--green); font-family:'Sora', sans-serif; }
 
-  /* ---------- HEADER ---------- */
-  header{
-    position:sticky; top:0; z-index:50;
-    background:rgba(10,14,18,0.88);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--border);
+  .whatsapp-cta-button{
+    display:flex; align-items:center; justify-content:center; gap:14px;
+    margin-top:24px; padding:22px 32px; background-color:#25D366; color:#FFFFFF;
+    font-weight:700; font-size:22px; line-height:1.25; text-align:center;
+    text-decoration:none; border-radius:22px; width:100%; box-sizing:border-box;
+    transition:transform .15s ease, box-shadow .15s ease, background-color .15s ease;
+    animation:whatsapp-pulse 2s ease-in-out infinite;
   }
-  .header-inner{ display:flex; align-items:center; justify-content:space-between; padding:16px 24px; }
-  .logo{ font-family:'Sora', sans-serif; font-weight:700; font-size:1.05rem; display:flex; align-items:center; gap:10px; }
-  .logo-mark{
-    width:30px; height:30px; border-radius:7px;
-    background:linear-gradient(135deg, var(--green), #1B7A4E);
-    display:flex; align-items:center; justify-content:center;
-    font-family:'IBM Plex Mono', monospace; font-weight:500; font-size:0.75rem; color:#06120B;
+  .whatsapp-cta-button svg{ flex-shrink:0; }
+  .whatsapp-cta-button:hover{
+    background-color:#1EBE5A; transform:scale(1.03);
+    box-shadow:0 10px 24px -6px rgba(37,211,102,0.55); animation-play-state:paused;
   }
-  .btn-whatsapp-header{
-    display:inline-flex; align-items:center; gap:8px;
-    background:var(--green); color:#06180F; font-weight:600; font-size:0.9rem;
-    padding:10px 18px; border-radius:999px; border:none; cursor:pointer;
-    transition:background .18s ease, transform .18s ease;
+  @keyframes whatsapp-pulse{
+    0%{ box-shadow:0 0 0 0 rgba(37,211,102,0.55); }
+    70%{ box-shadow:0 0 0 16px rgba(37,211,102,0); }
+    100%{ box-shadow:0 0 0 0 rgba(37,211,102,0); }
   }
-  .btn-whatsapp-header:hover{ background:var(--green-bright); transform:translateY(-1px); }
-
-  /* ---------- HERO ---------- */
-  .hero{ padding:72px 0 40px; text-align:center; position:relative; overflow:hidden; }
-  .hero::before{
-    content:""; position:absolute; top:-120px; left:50%; transform:translateX(-50%);
-    width:640px; height:320px;
-    background:radial-gradient(ellipse at center, rgba(47,168,110,0.16), transparent 70%);
-    pointer-events:none;
-  }
-  .eyebrow{
-    display:inline-flex; align-items:center; gap:8px;
-    font-family:'IBM Plex Mono', monospace; font-size:0.78rem; color:var(--green-bright);
-    background:rgba(47,168,110,0.08); border:1px solid rgba(47,168,110,0.25);
-    padding:6px 12px; border-radius:999px; margin-bottom:22px;
-  }
-  .eyebrow .dot{ width:6px; height:6px; border-radius:50%; background:var(--green-bright); }
-  .hero h1{ font-size:clamp(2rem, 4.4vw, 3.1rem); font-weight:800; max-width:820px; margin:0 auto 18px; line-height:1.12; }
-  .hero h1 .accent{ color:var(--green-bright); }
-  .hero p.lead{ font-size:1.08rem; color:var(--text-muted); max-width:600px; margin:0 auto; }
-
-  /* ---------- URGENCY BANNER ---------- */
-  .urgency{
-    max-width:620px; margin:32px auto 0;
-    background:linear-gradient(90deg, rgba(232,184,75,0.12), rgba(232,184,75,0.04));
-    border:1px solid rgba(232,184,75,0.35);
-    border-radius:var(--radius); padding:16px 20px;
-    display:flex; align-items:center; justify-content:center; gap:12px;
-    flex-wrap:wrap; text-align:center;
-  }
-  .urgency .flag{ color:var(--gold); font-size:1.1rem; }
-  .urgency strong{ color:var(--gold); }
-  .urgency span.sep{ color:var(--border); }
-
-  /* ---------- SECTION LABELS ---------- */
-  .section{ padding:64px 0; }
-  .section-head{ text-align:center; max-width:640px; margin:0 auto 44px; }
-  .section-head .eyebrow{ margin-bottom:14px; }
-  .section-head h2{ font-size:clamp(1.5rem, 2.8vw, 2.1rem); font-weight:700; margin-bottom:12px; }
-  .section-head p{ color:var(--text-muted); }
-
-  /* ---------- COURSE CARDS ---------- */
-  .courses-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:20px; }
-  @media (max-width:860px){ .courses-grid{ grid-template-columns:1fr; } }
-
-  .course-card{
-    position:relative;
-    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
-    padding:26px; cursor:pointer; text-align:left;
-    transition:border-color .18s ease, transform .18s ease, background .18s ease;
-    display:flex; flex-direction:column;
-  }
-  .course-card:hover{ border-color:rgba(47,168,110,0.4); transform:translateY(-2px); }
-  .course-card.selected{
-    border-color:var(--green); background:var(--surface-2);
-    box-shadow:0 0 0 1px var(--green), 0 12px 32px -12px rgba(47,168,110,0.35);
-  }
-  .course-card input[type="radio"]{ position:absolute; opacity:0; pointer-events:none; }
-  .course-card .cell-ref{
-    font-family:'IBM Plex Mono', monospace; font-size:0.72rem; color:var(--text-muted);
-    margin-bottom:14px; letter-spacing:0.02em;
-  }
-  .course-card h3{ font-size:1.15rem; font-weight:700; margin-bottom:8px; }
-  .course-card .desc{ color:var(--text-muted); font-size:0.92rem; margin-bottom:18px; flex-grow:1; }
-  .course-card .price-row{ display:flex; align-items:baseline; gap:10px; margin-bottom:16px; }
-  .course-card .price-old{ font-family:'IBM Plex Mono', monospace; color:var(--text-muted); text-decoration:line-through; font-size:0.95rem; }
-  .course-card .price-new{ font-family:'Sora', sans-serif; font-weight:800; font-size:1.7rem; color:var(--green-bright); }
-  .course-card .badge-promo{
-    display:inline-block; font-size:0.7rem; font-weight:600; color:var(--gold);
-    background:rgba(232,184,75,0.1); border:1px solid rgba(232,184,75,0.3);
-    padding:3px 9px; border-radius:999px; margin-bottom:14px; align-self:flex-start;
-  }
-  .course-card ul{ list-style:none; margin-bottom:20px; }
-  .course-card ul li{ font-size:0.86rem; color:var(--text-muted); padding-left:18px; position:relative; margin-bottom:7px; }
-  .course-card ul li::before{ content:"›"; position:absolute; left:0; color:var(--green-bright); font-weight:700; }
-  .select-indicator{
-    display:flex; align-items:center; justify-content:center; gap:8px;
-    border:1px solid var(--border); border-radius:var(--radius-sm);
-    padding:10px; font-size:0.86rem; font-weight:600; color:var(--text-muted);
-    transition:all .18s ease;
-  }
-  .course-card.selected .select-indicator{ border-color:var(--green); background:var(--green); color:#06180F; }
-  .select-indicator .ring{
-    width:16px; height:16px; border-radius:50%; border:2px solid currentColor; flex-shrink:0;
-    display:flex; align-items:center; justify-content:center;
-  }
-  .course-card.selected .select-indicator .ring::after{ content:""; width:8px; height:8px; border-radius:50%; background:currentColor; }
-
-  /* ---------- FORM ---------- */
-  .form-panel{
-    max-width:680px; margin:0 auto; background:var(--surface); border:1px solid var(--border);
-    border-radius:var(--radius); padding:36px;
-  }
-  .form-summary{
-    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;
-    background:var(--surface-2); border:1px solid var(--border); border-radius:var(--radius-sm);
-    padding:14px 18px; margin-bottom:28px; font-size:0.9rem;
-  }
-  .form-summary .fs-label{ color:var(--text-muted); }
-  .form-summary .fs-value{ font-weight:600; color:var(--green-bright); }
-  .form-summary .fs-price{ font-family:'Sora',sans-serif; font-weight:800; font-size:1.2rem; }
-
-  .field{ margin-bottom:18px; }
-  .field label{ display:block; font-size:0.86rem; font-weight:500; margin-bottom:7px; color:var(--text); }
-  .field label .req{ color:var(--gold); }
-  .field input, .field select{
-    width:100%; background:var(--bg); border:1px solid var(--border); border-radius:var(--radius-sm);
-    color:var(--text); padding:12px 14px; font-family:'Inter', sans-serif; font-size:0.95rem;
-    transition:border-color .15s ease;
-  }
-  .field input:focus, .field select:focus{ border-color:var(--green); outline:none; }
-  .field-row{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
-  @media (max-width:520px){ .field-row{ grid-template-columns:1fr; } }
-  .field .error-msg{ color:#F0876B; font-size:0.8rem; margin-top:6px; display:none; }
-  .field.invalid input{ border-color:#F0876B; }
-  .field.invalid .error-msg{ display:block; }
-
-  .btn-submit{
-    width:100%; background:var(--green); color:#06180F; font-weight:700; font-size:1rem;
-    padding:15px; border:none; border-radius:var(--radius-sm); cursor:pointer; margin-top:8px;
-    transition:background .18s ease, transform .18s ease;
-  }
-  .btn-submit:hover{ background:var(--green-bright); transform:translateY(-1px); }
-  .btn-submit:disabled{ opacity:0.5; cursor:not-allowed; transform:none; }
-
-  .payment-note{ display:flex; align-items:center; gap:8px; justify-content:center; margin-top:16px; font-size:0.84rem; color:var(--text-muted); }
-
-  .form-status{
-    margin-top:18px; padding:14px 16px; border-radius:var(--radius-sm); font-size:0.9rem; display:none;
-  }
-  .form-status.success{ display:block; background:rgba(47,168,110,0.1); border:1px solid rgba(47,168,110,0.3); color:var(--green-bright); }
-  .form-status.error{ display:block; background:rgba(240,135,107,0.1); border:1px solid rgba(240,135,107,0.3); color:#F0876B; }
-
-  /* ---------- BLOC FORMATEUR ---------- */
-  .trainer-card{
-    max-width:680px; margin:0 auto;
-    background:linear-gradient(180deg, var(--surface), var(--surface-2));
-    border:1px solid var(--border); border-radius:var(--radius);
-    padding:28px; display:flex; gap:22px; align-items:flex-start;
-  }
-  .trainer-photo{
-    width:76px; height:76px; border-radius:14px; flex-shrink:0;
-    background:linear-gradient(135deg, #1B2530, #10161E);
-    border:1px solid var(--border);
-    display:flex; align-items:center; justify-content:center;
-    font-family:'Sora', sans-serif; font-weight:700; font-size:1.3rem; color:var(--text-muted);
-    overflow:hidden;
-  }
-  .trainer-photo img{ width:100%; height:100%; object-fit:cover; }
-  .trainer-info h3{ font-size:1.1rem; font-weight:700; margin-bottom:8px; }
-  .trainer-info p{ color:var(--text-muted); font-size:0.92rem; margin-bottom:16px; }
-  .btn-linkedin{
-    display:inline-flex; align-items:center; gap:8px;
-    border:1px solid rgba(47,168,110,0.4); color:var(--green-bright);
-    font-size:0.85rem; font-weight:600; padding:9px 16px; border-radius:999px;
-    background:rgba(47,168,110,0.06); transition:background .18s ease, border-color .18s ease;
-  }
-  .btn-linkedin:hover{ background:rgba(47,168,110,0.14); border-color:var(--green); }
-  .btn-linkedin svg{ width:15px; height:15px; }
-  @media (max-width:520px){ .trainer-card{ flex-direction:column; align-items:center; text-align:center; } }
-
-  /* ---------- FAQ ---------- */
-  .faq-list{ max-width:720px; margin:0 auto; display:flex; flex-direction:column; gap:10px; }
-  .faq-item{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-sm); overflow:hidden; }
-  .faq-item button{
-    width:100%; text-align:left; background:none; border:none; color:var(--text);
-    padding:18px 20px; font-family:'Sora', sans-serif; font-weight:600; font-size:0.96rem;
-    display:flex; justify-content:space-between; align-items:center; cursor:pointer;
-  }
-  .faq-item .chevron{ font-family:'IBM Plex Mono', monospace; color:var(--green-bright); transition:transform .2s ease; flex-shrink:0; margin-left:12px; }
-  .faq-item[data-open="true"] .chevron{ transform:rotate(45deg); }
-  .faq-answer{ max-height:0; overflow:hidden; transition:max-height .25s ease; }
-  .faq-item[data-open="true"] .faq-answer{ max-height:200px; }
-  .faq-answer p{ padding:0 20px 18px; color:var(--text-muted); font-size:0.92rem; }
-
-  /* ---------- FOOTER ---------- */
-  footer{ border-top:1px solid var(--border); padding:36px 0; text-align:center; }
-  footer p{ color:var(--text-muted); font-size:0.85rem; }
-  footer .footer-mono{ font-family:'IBM Plex Mono', monospace; font-size:0.78rem; color:var(--text-muted); margin-top:6px; }
-
-  /* ---------- FLOATING WHATSAPP ---------- */
-  .whatsapp-float{
-    position:fixed; bottom:22px; right:22px; z-index:60;
-    display:flex; align-items:center; gap:10px;
-    background:var(--green); color:#06180F; font-weight:600; font-size:0.9rem;
-    padding:13px 18px 13px 14px; border-radius:999px; border:none; cursor:pointer;
-    box-shadow:0 10px 28px -8px rgba(47,168,110,0.55);
-    transition:background .18s ease, transform .18s ease;
-    animation:float-in .5s ease 1.2s both;
-  }
-  .whatsapp-float:hover{ background:var(--green-bright); transform:translateY(-2px); }
-  .whatsapp-float svg{ width:20px; height:20px; flex-shrink:0; }
-  @keyframes float-in{ from{ opacity:0; transform:translateY(14px) scale(0.94); } to{ opacity:1; transform:translateY(0) scale(1); } }
-  @media (max-width:640px){ .whatsapp-float .wa-text{ display:none; } .whatsapp-float{ padding:14px; } }
-  @media (prefers-reduced-motion: reduce){ .whatsapp-float{ animation:none; } * { transition:none !important; } }
+  @media (prefers-reduced-motion: reduce){ .whatsapp-cta-button{ animation:none; } }
+  @media (max-width:380px){ .whatsapp-cta-button{ font-size:19px; padding:18px 20px; } }
 </style>
 </head>
 <body>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1004029355870968&ev=PageView&noscript=1" alt="" /></noscript>
 
-<header>
-  <div class="header-inner">
-    <div class="logo">
-      <span class="logo-mark">Ax</span>
-      Excel Power BI Academy
+  <div class="card">
+    <svg class="check" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#3DDC97" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+      <polyline points="22 4 12 14.01 9 11.01"></polyline>
+    </svg>
+
+    <h1>Inscription confirmée</h1>
+
+    <p class="details" id="mainText">
+      Merci <span id="prenomSpan"></span>, votre inscription est bien enregistrée.
+      <br><br>
+      Pour confirmer votre place et échanger directement avec l'organisateur, écrivez-lui dès maintenant
+      sur WhatsApp.
+    </p>
+
+    <div class="summary-box" id="summaryBox" style="display:none;">
+      <div class="row"><span class="label">Formation</span><span class="value" id="summaryFormation"></span></div>
+      <div class="row"><span class="label">Tarif</span><span class="value price" id="summaryPrice"></span></div>
     </div>
-    <a class="btn-whatsapp-header" id="headerWhatsapp" href="#" aria-label="Contacter Dimitri sur WhatsApp">
-      Une question ?
+
+    <a href="#" target="_blank" rel="noopener noreferrer" class="whatsapp-cta-button" id="whatsappBtn">
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="#FFFFFF" aria-hidden="true">
+        <path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4c-4.35 0-7.85 3.5-7.85 7.85 0 1.38.36 2.7.99 3.87L4 20l4.4-1.15c1.12.6 2.37.94 3.65.94h.003c4.34 0 7.85-3.5 7.85-7.85a7.8 7.8 0 0 0-2.3-5.62zM12.05 18.4a6.5 6.5 0 0 1-3.31-.9l-.24-.14-2.46.64.66-2.4-.16-.25a6.5 6.5 0 0 1-1-3.5c0-3.6 2.93-6.53 6.54-6.53a6.5 6.5 0 0 1 4.62 1.92 6.5 6.5 0 0 1 1.91 4.61c0 3.61-2.93 6.55-6.56 6.55zm3.59-4.9c-.2-.1-1.17-.58-1.35-.64-.18-.07-.32-.1-.45.1-.13.2-.51.64-.63.77-.11.13-.23.15-.43.05-.2-.1-.83-.31-1.58-.98-.58-.52-.98-1.16-1.09-1.36-.11-.2-.01-.3.09-.4.09-.09.2-.23.3-.35.1-.11.13-.2.2-.33.07-.13.03-.25-.02-.35-.05-.1-.45-1.09-.62-1.49-.16-.39-.33-.34-.45-.34-.11 0-.25-.01-.38-.01-.13 0-.35.05-.53.25-.18.2-.7.68-.7 1.67s.72 1.94.82 2.07c.1.13 1.4 2.15 3.4 3.01.48.21.85.33 1.14.42.48.15.91.13 1.26.08.38-.06 1.17-.48 1.34-.94.16-.46.16-.86.11-.94-.05-.08-.18-.13-.38-.23z"/>
+      </svg>
+      <span>Confirmer sur WhatsApp</span>
     </a>
   </div>
-</header>
-
-<main>
-
-  <!-- HERO -->
-  <section class="hero container">
-    <h1>Choisissez votre formation <span class="accent">Excel</span> ou <span class="accent">Power BI</span></h1>
-    <p class="lead">Sélectionnez la formation qui correspond à votre niveau, complétez vos coordonnées, et recevez la confirmation de votre place.</p>
-
-    <div class="urgency">
-      <span class="flag">🔥</span>
-      <span><strong>Tarifs promotionnels</strong> valables jusqu'au <strong>18 août</strong></span>
-      <span class="sep">·</span>
-      <span>Places limitées</span>
-    </div>
-  </section>
-
-  <!-- FORMATIONS -->
-  <section class="section container" id="formations">
-    <div class="section-head">
-      <h2>Trois formations, un objectif : vous rendre autonome</h2>
-      <p>Chaque formation est indépendante. Choisissez celle qui correspond à votre niveau actuel.</p>
-    </div>
-
-    <div class="courses-grid" role="radiogroup" aria-label="Choix de la formation">
-
-      <label class="course-card" data-course="excel-debutant" data-price="100" data-price-old="150" data-name="Excel – Débutant à intermédiaire" tabindex="0">
-        <input type="radio" name="course" value="excel-debutant">
-        <div class="cell-ref">B4</div>
-        <span class="badge-promo">Tarif promo</span>
-        <h3>Excel – Débutant à intermédiaire</h3>
-        <p class="desc">Les fondamentaux solides pour gagner du temps au quotidien et ne plus dépendre d'un collègue pour vos fichiers.</p>
-        <ul>
-          <li>Formules et fonctions essentielles</li>
-          <li>Mise en forme et fiabilisation des fichiers</li>
-          <li>Tableaux croisés dynamiques</li>
-          <li>Tableau de bord</li>
-        </ul>
-        <div class="price-row">
-          <span class="price-old">150 €</span>
-          <span class="price-new">100 €</span>
-        </div>
-        <div class="select-indicator"><span class="ring"></span> Choisir cette formation</div>
-      </label>
-
-      <label class="course-card" data-course="excel-avance" data-price="120" data-price-old="200" data-name="Excel avancé – Power Query, Power Pivot & DAX" tabindex="0">
-        <input type="radio" name="course" value="excel-avance">
-        <div class="cell-ref">B5</div>
-        <span class="badge-promo">Tarif promo</span>
-        <h3>Excel avancé – Power Query &amp; DAX</h3>
-        <p class="desc">Automatisez vos reportings et fiabilisez vos données grâce à Power Query, Power Pivot et au langage DAX.</p>
-        <ul>
-          <li>Consolidation automatique de fichiers</li>
-          <li>Modèles de données et relations</li>
-          <li>Introduction au langage DAX</li>
-          <li>Tableau de bord</li>
-        </ul>
-        <div class="price-row">
-          <span class="price-old">200 €</span>
-          <span class="price-new">120 €</span>
-        </div>
-        <div class="select-indicator"><span class="ring"></span> Choisir cette formation</div>
-      </label>
-
-      <label class="course-card" data-course="powerbi" data-price="120" data-price-old="200" data-name="Power BI – Découverte et prise en main" tabindex="0">
-        <input type="radio" name="course" value="powerbi">
-        <div class="cell-ref">B6</div>
-        <span class="badge-promo">Tarif promo</span>
-        <h3>Power BI – Découverte</h3>
-        <p class="desc">Passez de vos tableaux Excel à des tableaux de bord Power BI clairs, visuels et pilotables.</p>
-        <ul>
-          <li>Import et préparation des données</li>
-          <li>Création de visuels et de rapports</li>
-          <li>Publication et partage d'un tableau de bord</li>
-        </ul>
-        <div class="price-row">
-          <span class="price-old">200 €</span>
-          <span class="price-new">120 €</span>
-        </div>
-        <div class="select-indicator"><span class="ring"></span> Choisir cette formation</div>
-      </label>
-
-    </div>
-  </section>
-
-  <!-- FORMULAIRE -->
-  <section class="section container" id="inscription">
-    <div class="section-head">
-      <h2>Finalisez votre inscription</h2>
-      <p>Sélectionnez d'abord une formation ci-dessus, puis complétez le formulaire.</p>
-    </div>
-
-    <div class="form-panel">
-      <div class="form-summary" id="formSummary">
-        <span class="fs-label">Formation sélectionnée :</span>
-        <span class="fs-value" id="fsCourseName">Aucune formation choisie</span>
-      </div>
-
-      <form id="registrationForm" novalidate>
-        <div class="field-row">
-          <div class="field" id="field-prenom">
-            <label for="prenom">Prénom <span class="req">*</span></label>
-            <input type="text" id="prenom" name="prenom" autocomplete="given-name" required>
-            <p class="error-msg">Merci d'indiquer votre prénom.</p>
-          </div>
-          <div class="field" id="field-nom">
-            <label for="nom">Nom <span class="req">*</span></label>
-            <input type="text" id="nom" name="nom" autocomplete="family-name" required>
-            <p class="error-msg">Merci d'indiquer votre nom.</p>
-          </div>
-        </div>
-
-        <div class="field" id="field-email">
-          <label for="email">Adresse email <span class="req">*</span></label>
-          <input type="email" id="email" name="email" autocomplete="email" required>
-          <p class="error-msg">Merci d'indiquer une adresse email valide.</p>
-        </div>
-
-        <div class="field-row">
-          <div class="field" id="field-telephone">
-            <label for="telephone">Téléphone / WhatsApp <span class="req">*</span></label>
-            <input type="tel" id="telephone" name="telephone" autocomplete="tel" placeholder="+225, +237, +221…" required>
-            <p class="error-msg">Merci d'indiquer votre numéro de téléphone.</p>
-          </div>
-          <div class="field" id="field-pays">
-            <label for="pays">Pays <span class="req">*</span></label>
-            <select id="pays" name="pays" required>
-              <option value="">Sélectionnez votre pays</option>
-              <option value="France">France</option>
-              <option value="Belgique">Belgique</option>
-              <option value="Suisse">Suisse</option>
-              <option value="Luxembourg">Luxembourg</option>
-              <option value="Autre">Autre</option>
-            </select>
-            <p class="error-msg">Merci de sélectionner votre pays.</p>
-          </div>
-        </div>
-
-        <input type="hidden" id="formationChoisie" name="formation">
-
-        <button type="submit" class="btn-submit" id="submitBtn" disabled>Sélectionnez une formation pour continuer</button>
-
-        <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
-        </form>
-    </div>
-  </section>
-
-  <!-- FORMATEUR -->
-  <section class="section container" id="formateur">
-    <div class="section-head">
-      <h2>Avec qui vous allez apprendre</h2>
-    </div>
-    <div class="trainer-card">
-      <div class="trainer-photo">
-        <img src="/formateur.jpg" alt="Dimitri Takou">
-      </div>
-      <div class="trainer-info">
-        <h3>Dimitri Takou</h3>
-        <p>Responsable Administratif &amp; Financier avec 7 ans d'expérience professionnelle en France chez AXA, Mazars et Valophis. Je conçois des tableaux de bord décisionnels sous Excel BI / Power BI pour accompagner la prise de décision.</p>
-        <a class="btn-linkedin" href="#" id="linkedinLink" target="_blank" rel="noopener" aria-label="Voir le profil LinkedIn de Dimitri Takou">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 11.02-4.12 2.06 2.06 0 01-.02 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
-          Voir mon profil LinkedIn
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="section container" id="faq">
-    <div class="section-head">
-      <h2>Avant de vous inscrire</h2>
-    </div>
-    <div class="faq-list">
-      <div class="faq-item" data-open="false">
-        <button aria-expanded="false">Les formations sont-elles 100% à distance ? <span class="chevron">+</span></button>
-        <div class="faq-answer"><p>Oui. Les formations se déroulent entièrement en visioconférence, avec les fichiers d'exercices fournis, quel que soit votre pays de résidence.</p></div>
-      </div>
-      <div class="faq-item" data-open="false">
-        <button aria-expanded="false">Le paiement en 2 fois, comment ça fonctionne ? <span class="chevron">+</span></button>
-        <div class="faq-answer"><p>Après votre inscription, vous recevrez les modalités de paiement en 2 fois par email.</p></div>
-      </div>
-      <div class="faq-item" data-open="false">
-        <button aria-expanded="false">Que se passe-t-il après mon inscription ? <span class="chevron">+</span></button>
-        <div class="faq-answer"><p>Vous recevez une confirmation par email, puis un message WhatsApp avec les informations pratiques de la session (date, lien de connexion, fichiers de préparation).</p></div>
-      </div>
-      <div class="faq-item" data-open="false">
-        <button aria-expanded="false">Puis-je changer de formation après inscription ? <span class="chevron">+</span></button>
-        <div class="faq-answer"><p>Oui, contactez-moi par mail ou WhatsApp avant le début de la session et nous ajustons ensemble.</p></div>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<footer>
-  <div class="container">
-    <p>Excel Power BI Academy</p>
-    <p class="footer-mono">excelpowerbiacademy.fr</p>
-  </div>
-</footer>
-
-<!-- Bouton WhatsApp flottant -->
-<a class="whatsapp-float" id="floatingWhatsapp" href="#" aria-label="Contacter Dimitri sur WhatsApp">
-  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.48 1.32 5L2 22l5.24-1.37a9.9 9.9 0 004.8 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.87 9.87 0 0012.04 2zm5.83 14.11c-.24.68-1.4 1.33-1.94 1.4-.5.08-1.12.11-1.81-.11-.42-.13-.95-.31-1.64-.6-2.88-1.24-4.76-4.14-4.9-4.33-.14-.19-1.17-1.56-1.17-2.97 0-1.42.74-2.11 1-2.4.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.58.81 2 .88 2.14.07.15.12.32.02.51-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.22 1.37.28.14.44.12.6-.07.16-.19.68-.79.86-1.06.18-.27.36-.22.6-.13.24.09 1.53.72 1.8.85.27.14.44.2.51.32.07.12.07.68-.17 1.36z"/></svg>
-  <span class="wa-text">Une question ? Écrivez-moi</span>
-</a>
 
 <script>
-(function(){
-  var WHATSAPP_NUMBER = "33758298245";
-  var courses = document.querySelectorAll('.course-card');
-  var submitBtn = document.getElementById('submitBtn');
-  var fsCourseName = document.getElementById('fsCourseName');
-  var formationHidden = document.getElementById('formationChoisie');
-  var selectedCourse = null;
+  // ⚠️ À adapter : lien du groupe WhatsApp dédié aux inscrits formation
+  // (actuellement le même lien que le groupe webinaire — à remplacer si tu crées un groupe séparé)
 
-  function waLink(customText){
-    var text = customText || "Bonjour Dimitri, je souhaite obtenir des informations sur vos formations Excel et Power BI.";
-    return "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(text);
+  var params = new URLSearchParams(window.location.search);
+  var prenom = params.get('prenom');
+  var email = params.get('email');
+  var formation = params.get('formation');
+  var prix = params.get('prix');
+
+  document.getElementById('prenomSpan').textContent = prenom || '';
+
+  if(formation){
+    document.getElementById('summaryBox').style.display = 'block';
+    document.getElementById('summaryFormation').textContent = formation;
+    document.getElementById('summaryPrice').textContent = prix ? (prix + ' €') : '';
   }
 
-  document.getElementById('headerWhatsapp').href = waLink();
-  document.getElementById('floatingWhatsapp').href = waLink();
+  // Message WhatsApp pré-rempli et contextualisé selon la formation, envoyé
+  // directement à l'organisateur (pas de groupe)
+  var waText = formation
+    ? "Bonjour, je viens de m'inscrire à la formation \"" + formation + "\"" + (prenom ? " (" + prenom + ")" : "") + ". Pouvez-vous me confirmer les prochaines étapes ?"
+    : "Bonjour, je viens de m'inscrire à une de vos formations. Pouvez-vous me confirmer les prochaines étapes ?";
 
-  courses.forEach(function(card){
-    function selectCard(){
-      courses.forEach(function(c){ c.classList.remove('selected'); c.querySelector('input').checked = false; });
-      card.classList.add('selected');
-      card.querySelector('input').checked = true;
-      selectedCourse = card;
+  document.getElementById('whatsappBtn').href = "https://wa.me/33758298245?text=" + encodeURIComponent(waText);
 
-      fsCourseName.textContent = card.dataset.name;
-      formationHidden.value = card.dataset.name;
-      submitBtn.disabled = false;
-      submitBtn.textContent = "Valider mon inscription";
-
-      document.getElementById('inscription').scrollIntoView({behavior:'smooth', block:'start'});
-    }
-    card.addEventListener('click', selectCard);
-    card.addEventListener('keydown', function(e){
-      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); selectCard(); }
+  if(typeof window.fbq === 'function'){
+    window.fbq('track', 'Lead', {
+      content_name: formation || 'Inscription formation Excel Power BI Academy'
     });
-  });
-
-  // FAQ accordion
-  document.querySelectorAll('.faq-item button').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      var item = btn.closest('.faq-item');
-      var isOpen = item.getAttribute('data-open') === 'true';
-      document.querySelectorAll('.faq-item').forEach(function(i){
-        i.setAttribute('data-open','false');
-        i.querySelector('button').setAttribute('aria-expanded','false');
-      });
-      if(!isOpen){
-        item.setAttribute('data-open','true');
-        btn.setAttribute('aria-expanded','true');
-      }
-    });
-  });
-
-  // Validation + soumission du formulaire
-  var form = document.getElementById('registrationForm');
-  var formStatus = document.getElementById('formStatus');
-
-  function validateField(id, condition){
-    var field = document.getElementById('field-' + id);
-    if(!condition){ field.classList.add('invalid'); return false; }
-    field.classList.remove('invalid');
-    return true;
   }
-
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    formStatus.className = 'form-status';
-    formStatus.textContent = '';
-
-    if(!selectedCourse){
-      formStatus.className = 'form-status error';
-      formStatus.textContent = "Merci de sélectionner une formation avant de valider.";
-      return;
-    }
-
-    var prenom = document.getElementById('prenom').value.trim();
-    var nom = document.getElementById('nom').value.trim();
-    var email = document.getElementById('email').value.trim();
-    var telephone = document.getElementById('telephone').value.trim();
-    var pays = document.getElementById('pays').value;
-
-    var emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
-    var ok = true;
-    ok = validateField('prenom', prenom.length > 0) && ok;
-    ok = validateField('nom', nom.length > 0) && ok;
-    ok = validateField('email', emailValid) && ok;
-    ok = validateField('telephone', telephone.length >= 6) && ok;
-    ok = validateField('pays', pays.length > 0) && ok;
-
-    if(!ok){
-      formStatus.className = 'form-status error';
-      formStatus.textContent = "Merci de corriger les champs indiqués en rouge.";
-      return;
-    }
-
-    // Envoi réel vers le Google Form via fetch() — plus fiable que l'iframe cachée,
-    // qui peut être bloquée par les protections anti-pistage de certains navigateurs.
-    submitBtn.disabled = true;
-    submitBtn.textContent = "Envoi en cours…";
-
-    var formData = new URLSearchParams();
-    formData.append('entry.955509900', prenom);
-    formData.append('entry.837623784', nom);
-    formData.append('entry.1638356894', email);
-    formData.append('entry.435564321', telephone);
-    formData.append('entry.190831966', pays);
-    formData.append('entry.1906429752', selectedCourse.dataset.name);
-
-    fetch("https://docs.google.com/forms/d/e/1FAIpQLSdsY_gBEzlQkqGt9j6p8O_sOFPzIaIn9AlwDOJuyqeklHK6IA/formResponse", {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: formData.toString()
-    }).catch(function(err){
-      console.error('Erreur envoi Google Form:', err);
-    }).finally(function(){
-      var redirectParams = new URLSearchParams({
-        prenom: prenom,
-        email: email,
-        formation: selectedCourse.dataset.name,
-        prix: selectedCourse.dataset.price
-      });
-      window.location.href = "merci-inscription.html?" + redirectParams.toString();
-    });
-  });
-})();
 </script>
 
 </body>
