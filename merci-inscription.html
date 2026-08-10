@@ -91,10 +91,7 @@ src="https://www.facebook.com/tr?id=1004029355870968&ev=PageView&noscript=1" alt
     <p class="details" id="mainText">
       Merci <span id="prenomSpan"></span>, votre inscription est bien enregistrée.
       <br><br>
-      Vous allez recevoir les informations pratiques de votre session (date, lien de connexion,
-      modalités de paiement) par e-mail<span id="emailSpan"></span>.
-      <br><br>
-      Pour confirmer votre place et échanger directement avec Dimitri, écrivez-lui dès maintenant
+      Pour confirmer votre place et échanger directement avec l'organisateur, écrivez-lui dès maintenant
       sur WhatsApp.
     </p>
 
@@ -122,7 +119,6 @@ src="https://www.facebook.com/tr?id=1004029355870968&ev=PageView&noscript=1" alt
   var prix = params.get('prix');
 
   document.getElementById('prenomSpan').textContent = prenom || '';
-  document.getElementById('emailSpan').textContent = email ? (' à ' + email) : '';
 
   if(formation){
     document.getElementById('summaryBox').style.display = 'block';
@@ -131,10 +127,10 @@ src="https://www.facebook.com/tr?id=1004029355870968&ev=PageView&noscript=1" alt
   }
 
   // Message WhatsApp pré-rempli et contextualisé selon la formation, envoyé
-  // directement à Dimitri (pas de groupe)
+  // directement à l'organisateur (pas de groupe)
   var waText = formation
-    ? "Bonjour Dimitri, je viens de m'inscrire à la formation \"" + formation + "\"" + (prenom ? " (" + prenom + ")" : "") + ". Pouvez-vous me confirmer les prochaines étapes ?"
-    : "Bonjour Dimitri, je viens de m'inscrire à une de vos formations. Pouvez-vous me confirmer les prochaines étapes ?";
+    ? "Bonjour, je viens de m'inscrire à la formation \"" + formation + "\"" + (prenom ? " (" + prenom + ")" : "") + ". Pouvez-vous me confirmer les prochaines étapes ?"
+    : "Bonjour, je viens de m'inscrire à une de vos formations. Pouvez-vous me confirmer les prochaines étapes ?";
 
   document.getElementById('whatsappBtn').href = "https://wa.me/33758298245?text=" + encodeURIComponent(waText);
 
