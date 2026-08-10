@@ -365,7 +365,6 @@
       <div class="form-summary" id="formSummary">
         <span class="fs-label">Formation sélectionnée :</span>
         <span class="fs-value" id="fsCourseName">Aucune formation choisie</span>
-        <span class="fs-price mono" id="fsPrice"></span>
       </div>
 
       <form id="registrationForm" novalidate>
@@ -412,17 +411,14 @@
 
         <button type="submit" class="btn-submit" id="submitBtn" disabled>Sélectionnez une formation pour continuer</button>
 
-        <div class="payment-note">💳 Paiement en 2 fois possible — les modalités vous seront communiquées après inscription</div>
-
         <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
-      </form>
+        </form>
     </div>
   </section>
 
   <!-- FORMATEUR -->
   <section class="section container" id="formateur">
     <div class="section-head">
-      <div class="eyebrow"><span class="dot"></span> D2 · Votre formateur</div>
       <h2>Avec qui vous allez apprendre</h2>
     </div>
     <div class="trainer-card">
@@ -443,7 +439,6 @@
   <!-- FAQ -->
   <section class="section container" id="faq">
     <div class="section-head">
-      <div class="eyebrow"><span class="dot"></span> D14 · Questions fréquentes</div>
       <h2>Avant de vous inscrire</h2>
     </div>
     <div class="faq-list">
@@ -487,7 +482,6 @@
   var courses = document.querySelectorAll('.course-card');
   var submitBtn = document.getElementById('submitBtn');
   var fsCourseName = document.getElementById('fsCourseName');
-  var fsPrice = document.getElementById('fsPrice');
   var formationHidden = document.getElementById('formationChoisie');
   var selectedCourse = null;
 
@@ -507,10 +501,9 @@
       selectedCourse = card;
 
       fsCourseName.textContent = card.dataset.name;
-      fsPrice.innerHTML = '<span style="text-decoration:line-through;color:var(--text-muted);margin-right:8px;">' + card.dataset.priceOld + ' €</span>' + card.dataset.price + ' €';
       formationHidden.value = card.dataset.name;
       submitBtn.disabled = false;
-      submitBtn.textContent = "Valider mon inscription — " + card.dataset.price + " €";
+      submitBtn.textContent = "Valider mon inscription";
 
       document.getElementById('inscription').scrollIntoView({behavior:'smooth', block:'start'});
     }
