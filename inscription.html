@@ -572,35 +572,22 @@
       return;
     }
 
-    // Envoi réel vers le Google Form via fetch() — plus fiable que l'iframe cachée,
-    // qui peut être bloquée par les protections anti-pistage de certains navigateurs.
+    // Redirection vers le vrai Google Form, pré-rempli avec les réponses.
+    // Méthode garantie fiable : la personne clique elle-même sur "Envoyer" côté
+    // Google, ce qui évite les blocages anti-robot sur les envois automatiques.
     submitBtn.disabled = true;
-    submitBtn.textContent = "Envoi en cours…";
+    submitBtn.textContent = "Redirection…";
 
-    var formData = new URLSearchParams();
-    formData.append('entry.955509900', prenom);
-    formData.append('entry.837623784', nom);
-    formData.append('entry.1638356894', email);
-    formData.append('entry.435564321', telephone);
-    formData.append('entry.190831966', pays);
-    formData.append('entry.1906429752', selectedCourse.dataset.name);
-
-    fetch("https://docs.google.com/forms/d/e/1FAIpQLSdsY_gBEzlQkqGt9j6p8O_sOFPzIaIn9AlwDOJuyqeklHK6IA/formResponse", {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: formData.toString()
-    }).catch(function(err){
-      console.error('Erreur envoi Google Form:', err);
-    }).finally(function(){
-      var redirectParams = new URLSearchParams({
-        prenom: prenom,
-        email: email,
-        formation: selectedCourse.dataset.name,
-        prix: selectedCourse.dataset.price
-      });
-      window.location.href = "merci-inscription.html?" + redirectParams.toString();
+    var gfParams = new URLSearchParams({
+      'entry.955509900': prenom,
+      'entry.837623784': nom,
+      'entry.1638356894': email,
+      'entry.435564321': telephone,
+      'entry.190831966': pays,
+      'entry.1906429752': selectedCourse.dataset.name
     });
+
+    window.location.href = "https://docs.google.com/forms/d/e/1F8cDkIgKRLJJbFYMoTyDfT-scNU_G_PVydC2IE7eMGY/viewform?" + gfParams.toString();
   });
 })();
 </script>
