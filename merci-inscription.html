@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inscription confirmée | Excel Power BI Academy</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Meta Pixel Code : reprendre le même pixel ID que sur le site webinaire (1004029355870968) -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1004029355870968');
+fbq('track', 'PageView');
+</script>
+
+<style>
+  :root{
+    --bg:#0A0D16;
+    --surface:#10141F;
+    --border:#2E3650;
+    --text:#F1F3F9;
+    --muted:#8B93AC;
+    --green:#3DDC97;
+  }
+  *{ box-sizing:border-box; }
+  body{
+    margin:0; min-height:100vh; background:var(--bg); color:var(--text);
+    font-family:'Inter', sans-serif;
+    display:flex; align-items:center; justify-content:center; padding:24px;
+  }
+  .card{
+    background:var(--surface); border:1px solid var(--border); border-radius:16px;
+    padding:40px; text-align:center; max-width:520px; width:100%;
+  }
+  .check{ margin:0 auto 16px; display:block; }
+  h1{ font-family:'Sora', sans-serif; font-weight:600; font-size:1.35rem; margin:0 0 8px; }
+  .details{ color:var(--muted); font-size:0.92rem; line-height:1.7; text-align:left; margin-bottom:6px; }
+  .summary-box{
+    background:#151A28; border:1px solid var(--border); border-radius:10px;
+    padding:14px 16px; margin:18px 0; text-align:left; font-size:0.88rem;
+  }
+  .summary-box .row{ display:flex; justify-content:space-between; padding:4px 0; }
+  .summary-box .label{ color:var(--muted); }
+  .summary-box .value{ font-weight:600; color:var(--text); }
+  .summary-box .value.price{ color:var(--green); font-family:'Sora', sans-serif; }
+
+  .whatsapp-cta-button{
+    display:flex; align-items:center; justify-content:center; gap:14px;
+    margin-top:24px; padding:22px 32px; background-color:#25D366; color:#FFFFFF;
+    font-weight:700; font-size:22px; line-height:1.25; text-align:center;
+    text-decoration:none; border-radius:22px; width:100%; box-sizing:border-box;
+    transition:transform .15s ease, box-shadow .15s ease, background-color .15s ease;
+    animation:whatsapp-pulse 2s ease-in-out infinite;
+  }
+  .whatsapp-cta-button svg{ flex-shrink:0; }
+  .whatsapp-cta-button:hover{
+    background-color:#1EBE5A; transform:scale(1.03);
+    box-shadow:0 10px 24px -6px rgba(37,211,102,0.55); animation-play-state:paused;
+  }
+  @keyframes whatsapp-pulse{
+    0%{ box-shadow:0 0 0 0 rgba(37,211,102,0.55); }
+    70%{ box-shadow:0 0 0 16px rgba(37,211,102,0); }
+    100%{ box-shadow:0 0 0 0 rgba(37,211,102,0); }
+  }
+  @media (prefers-reduced-motion: reduce){ .whatsapp-cta-button{ animation:none; } }
+  @media (max-width:380px){ .whatsapp-cta-button{ font-size:19px; padding:18px 20px; } }
+</style>
+</head>
+<body>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1004029355870968&ev=PageView&noscript=1" alt="" /></noscript>
+
+  <div class="card">
+    <svg class="check" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#3DDC97" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+      <polyline points="22 4 12 14.01 9 11.01"></polyline>
+    </svg>
+
+    <h1>Inscription confirmée</h1>
+
+    <p class="details" id="mainText">
+      Merci <span id="prenomSpan"></span>, votre inscription est bien enregistrée.
+      <br><br>
+      Vous allez recevoir les informations pratiques de votre session (date, lien de connexion,
+      modalités de paiement) par e-mail<span id="emailSpan"></span>.
+      <br><br>
+      Pour confirmer votre place et échanger directement avec Dimitri, écrivez-lui dès maintenant
+      sur WhatsApp.
+    </p>
+
+    <div class="summary-box" id="summaryBox" style="display:none;">
+      <div class="row"><span class="label">Formation</span><span class="value" id="summaryFormation"></span></div>
+      <div class="row"><span class="label">Tarif</span><span class="value price" id="summaryPrice"></span></div>
+    </div>
+
+    <a href="#" target="_blank" rel="noopener noreferrer" class="whatsapp-cta-button" id="whatsappBtn">
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="#FFFFFF" aria-hidden="true">
+        <path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4c-4.35 0-7.85 3.5-7.85 7.85 0 1.38.36 2.7.99 3.87L4 20l4.4-1.15c1.12.6 2.37.94 3.65.94h.003c4.34 0 7.85-3.5 7.85-7.85a7.8 7.8 0 0 0-2.3-5.62zM12.05 18.4a6.5 6.5 0 0 1-3.31-.9l-.24-.14-2.46.64.66-2.4-.16-.25a6.5 6.5 0 0 1-1-3.5c0-3.6 2.93-6.53 6.54-6.53a6.5 6.5 0 0 1 4.62 1.92 6.5 6.5 0 0 1 1.91 4.61c0 3.61-2.93 6.55-6.56 6.55zm3.59-4.9c-.2-.1-1.17-.58-1.35-.64-.18-.07-.32-.1-.45.1-.13.2-.51.64-.63.77-.11.13-.23.15-.43.05-.2-.1-.83-.31-1.58-.98-.58-.52-.98-1.16-1.09-1.36-.11-.2-.01-.3.09-.4.09-.09.2-.23.3-.35.1-.11.13-.2.2-.33.07-.13.03-.25-.02-.35-.05-.1-.45-1.09-.62-1.49-.16-.39-.33-.34-.45-.34-.11 0-.25-.01-.38-.01-.13 0-.35.05-.53.25-.18.2-.7.68-.7 1.67s.72 1.94.82 2.07c.1.13 1.4 2.15 3.4 3.01.48.21.85.33 1.14.42.48.15.91.13 1.26.08.38-.06 1.17-.48 1.34-.94.16-.46.16-.86.11-.94-.05-.08-.18-.13-.38-.23z"/>
+      </svg>
+      <span>Confirmer sur WhatsApp</span>
+    </a>
+  </div>
+
+<script>
+  // ⚠️ À adapter : lien du groupe WhatsApp dédié aux inscrits formation
+  // (actuellement le même lien que le groupe webinaire — à remplacer si tu crées un groupe séparé)
+
+  var params = new URLSearchParams(window.location.search);
+  var prenom = params.get('prenom');
+  var email = params.get('email');
+  var formation = params.get('formation');
+  var prix = params.get('prix');
+
+  document.getElementById('prenomSpan').textContent = prenom || '';
+  document.getElementById('emailSpan').textContent = email ? (' à ' + email) : '';
+
+  if(formation){
+    document.getElementById('summaryBox').style.display = 'block';
+    document.getElementById('summaryFormation').textContent = formation;
+    document.getElementById('summaryPrice').textContent = prix ? (prix + ' €') : '';
+  }
+
+  // Message WhatsApp pré-rempli et contextualisé selon la formation, envoyé
+  // directement à Dimitri (pas de groupe)
+  var waText = formation
+    ? "Bonjour Dimitri, je viens de m'inscrire à la formation \"" + formation + "\"" + (prenom ? " (" + prenom + ")" : "") + ". Pouvez-vous me confirmer les prochaines étapes ?"
+    : "Bonjour Dimitri, je viens de m'inscrire à une de vos formations. Pouvez-vous me confirmer les prochaines étapes ?";
+
+  document.getElementById('whatsappBtn').href = "https://wa.me/33758298245?text=" + encodeURIComponent(waText);
+
+  if(typeof window.fbq === 'function'){
+    window.fbq('track', 'Lead', {
+      content_name: formation || 'Inscription formation Excel Power BI Academy'
+    });
+  }
+</script>
+
+</body>
+</html>
